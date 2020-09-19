@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "projects": {
+    "clockwork": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/clockwork",
+      "sourceRoot": "apps/clockwork/src",
+      "prefix": "wap",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/clockwork",
+            "index": "apps/clockwork/src/index.html",
+            "main": "apps/clockwork/src/main.ts",
+            "polyfills": "apps/clockwork/src/polyfills.ts",
+            "tsConfig": "apps/clockwork/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/clockwork/src/favicon.ico",
+              "apps/clockwork/src/assets"
+            ],
+            "styles": ["apps/clockwork/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/clockwork/src/environments/environment.ts",
+                  "with": "apps/clockwork/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "clockwork:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "clockwork:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "clockwork:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/clockwork/tsconfig.app.json",
+              "apps/clockwork/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/clockwork/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/clockwork/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "clockwork-e2e": {
+      "root": "apps/clockwork-e2e",
+      "sourceRoot": "apps/clockwork-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/clockwork-e2e/cypress.json",
+            "tsConfig": "apps/clockwork-e2e/tsconfig.e2e.json",
+            "devServerTarget": "clockwork:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "clockwork:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/clockwork-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/clockwork-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "clockwork"
+}
