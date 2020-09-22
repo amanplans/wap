@@ -4,7 +4,7 @@ import { Todo } from '@wap/data';
 @Component({
   selector: 'wap-todos',
   templateUrl: './todos.component.html',
-  styleUrls: ['./todos.component.css'],
+  styleUrls: ['./todos.component.scss'],
 })
 export class TodosComponent implements OnInit {
   @Input() todos: Todo[];
