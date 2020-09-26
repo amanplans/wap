@@ -23,20 +23,20 @@
   },
   "projects": {
     "clockwork": {
-      "tags": []
+      "tags": ["scope:clockwork", "type:app"]
     },
     "clockwork-e2e": {
-      "tags": [],
+      "tags": ["type:e2e"],
       "implicitDependencies": ["clockwork"]
     },
     "api": {
-      "tags": []
+      "tags": ["scope:api", "type:app"]
     },
-    "data": {
-      "tags": []
+    "shared-data-access": {
+      "tags": ["scope:shared", "type:data-access"]
     },
-    "ui": {
-      "tags": []
+    "shared-ui": {
+      "tags": ["scope:shared", "type:ui"]
     }
   }
 }

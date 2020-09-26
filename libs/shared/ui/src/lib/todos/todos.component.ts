@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Todo } from '@wap/data';
+import { Todo } from '@wap/shared/data-access';
 
 @Component({
   selector: 'wap-todos',

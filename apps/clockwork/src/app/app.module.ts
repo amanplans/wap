@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UiModule } from '@wap/ui';
+import { UiModule } from '@wap/shared/ui';
 
 @NgModule({
   declarations: [AppComponent],

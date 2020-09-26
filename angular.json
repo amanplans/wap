@@ -177,9 +177,9 @@
         }
       }
     },
-    "data": {
-      "root": "libs/data",
-      "sourceRoot": "libs/data/src",
+    "shared-data-access": {
+      "root": "libs/shared/data-access",
+      "sourceRoot": "libs/shared/data-access/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -187,41 +187,41 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/data/tsconfig.lib.json",
-              "libs/data/tsconfig.spec.json"
+              "libs/shared/data-access/tsconfig.lib.json",
+              "libs/shared/data-access/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/data/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/shared/data-access/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/data/jest.config.js",
+            "jestConfig": "libs/shared/data-access/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "ui": {
+    "shared-ui": {
       "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
+      "root": "libs/shared/ui",
+      "sourceRoot": "libs/shared/ui/src",
       "prefix": "wap",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "libs/ui/tsconfig.lib.json",
-              "libs/ui/tsconfig.spec.json"
+              "libs/shared/ui/tsconfig.lib.json",
+              "libs/shared/ui/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/ui/**/*"]
+            "exclude": ["**/node_modules/**", "!libs/shared/ui/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/ui/jest.config.js",
+            "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
           }
         }
