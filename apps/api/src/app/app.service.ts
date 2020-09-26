@@ -1,5 +1,5 @@
+import { Todo } from '@wap/shared/data-access';
 import { Injectable } from '@nestjs/common';
-import { Todo } from '@wap/data';
 
 @Injectable()
 export class AppService {

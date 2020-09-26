@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Todo } from '@wap/data';
+import { Todo } from '@wap/shared/data-access';
 
 @Component({
   selector: 'wap-root',
