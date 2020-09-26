@@ -1,4 +1,10 @@
 {
+  "extends": [
+    "tslint:recommended",
+		"tslint-eslint-rules",
+		"tslint-jasmine-rules",
+		"tslint-config-prettier"
+  ],
   "rulesDirectory": [
     "node_modules/@nrwl/workspace/src/tslint",
     "node_modules/codelyzer"
