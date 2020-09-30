@@ -1,21 +1,23 @@
 import { Test } from '@nestjs/testing';
+import { Todo } from '@wap/shared/data-access';
 
 import { AppService } from './app.service';
 
 describe('AppService', () => {
-  let service: AppService;
+	let service: AppService;
 
-  beforeAll(async () => {
-    const app = await Test.createTestingModule({
-      providers: [AppService],
-    }).compile();
+	beforeAll(async () => {
+		const app = await Test.createTestingModule({
+			providers: [AppService],
+		}).compile();
 
-    service = app.get<AppService>(AppService);
-  });
+		service = app.get<AppService>(AppService);
+	});
 
-  describe('getData', () => {
-    it('should return "Welcome to api!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to api!' });
-    });
-  });
+	describe('getData', () => {
+		it('should return array with 2 items', () => {
+			const todos: Todo[] = [{ title: 'Todo 1' }, { title: 'Todo 2' }];
+			expect(service.getData()).toEqual(expect.arrayContaining(todos));
+		});
+	});
 });
